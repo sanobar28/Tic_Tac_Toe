@@ -8,7 +8,7 @@ public class TicTacToe {
 	static String turn;
 
 	/**
-	 * @ UC-1 to create and print board
+	 * @ Method to create and print board
 	 */
 	static void printBoard() {
 		System.out.println("|---|---|---|");
@@ -19,10 +19,9 @@ public class TicTacToe {
 		System.out.println("| " + board[6] + " | " + board[7] + " | " + board[8] + " |");
 		System.out.println("|---|---|---|");
 	}
-	
-	
+
 	/**
-	 * Decide who will play first
+	 * Decide who will play first and take user position
 	 * @param args
 	 */
 
@@ -41,7 +40,27 @@ public class TicTacToe {
 		printBoard();
 
 		System.out.println("X will play first. Enter a slot number to place X in:");
+		
+		// logic to take user position
+		while (winner == null) {
+            int numInput;
+          
+            try {
+                numInput = in.nextInt();
+                if (!(numInput > 0 && numInput <= 9)) {
+                    System.out.println(
+                        "Invalid input; re-enter slot number:");
+                    continue;
+                }
+            }
+            catch (InputMismatchException e) {
+                System.out.println(
+                    "Invalid input; re-enter slot number:");
+                continue;
+            }
+
+		}
 
 	}
-
+	
 }
